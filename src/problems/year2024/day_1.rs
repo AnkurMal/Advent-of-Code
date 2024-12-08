@@ -41,5 +41,5 @@ pub fn part_2() {
         sum += i*freq.get(i).unwrap_or(&0);
     }
     
-    println!("Part 1: {}", sum)
+    println!("Part 2: {}", sum)
 }
