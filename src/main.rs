@@ -5,3 +5,4 @@ use problems::year2024::*;
 
 fn main() {
     
+}
