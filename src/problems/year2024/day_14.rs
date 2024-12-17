@@ -1,7 +1,5 @@
 use std::io::Write;
-
 use regex::Regex;
-use image::{ImageBuffer, RgbImage, Rgb};
 
 const DATA: &str = include_str!("../../data/year2024/day_14.txt");
 const COORDS: [i32; 2] = [101, 103];
