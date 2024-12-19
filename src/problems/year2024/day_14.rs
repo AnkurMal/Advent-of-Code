@@ -1,4 +1,3 @@
-use std::io::Write;
 use regex::Regex;
 
 const DATA: &str = include_str!("../../data/year2024/day_14.txt");
