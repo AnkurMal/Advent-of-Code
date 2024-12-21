@@ -32,7 +32,7 @@ pub fn part_2() {
 
     let (pages, list) = spl.split_at(empty);
 
-    'outer: for &i in list.iter().skip(1) {
+    for &i in list.iter().skip(1) {
         let mut st = i.split(',').collect::<Vec<&str>>();
         let mut contains = true;
         let mut ind=0;
