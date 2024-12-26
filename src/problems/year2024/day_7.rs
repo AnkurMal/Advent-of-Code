@@ -1,5 +1,3 @@
-use std::io::Write;
-
 const DATA: &str = include_str!("../../data/year2024/day_7.txt");
 
 pub fn part_1() {
