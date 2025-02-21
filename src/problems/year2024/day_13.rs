@@ -28,7 +28,6 @@ pub fn part_1() {
     }
 
     println!("Part 1: {sum}")
-
 }
 
 pub fn part_2() {
@@ -59,5 +58,4 @@ pub fn part_2() {
     }
 
     println!("Part 2: {sum}")
-
 }
