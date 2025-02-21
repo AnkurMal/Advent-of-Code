@@ -1,5 +1,3 @@
-use std::process::exit;
-
 const DATA: &str = include_str!("../../data/year2024/day_12.txt");
 
 #[derive(PartialEq, Eq, Clone, Copy)]
