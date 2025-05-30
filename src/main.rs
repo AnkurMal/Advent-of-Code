@@ -4,5 +4,5 @@ mod problems;
 use problems::year2015::*;
 
 fn main() {
-    day_4::part_1();
+    day_5::part_2();
 }
