@@ -3,15 +3,13 @@ const DATA: &str = include_str!("../../data/year2024/day_15.txt");
 #[derive(Debug, Clone, Copy)]
 struct Coord {
     x: usize,
-    y: usize
+    y: usize,
 }
 
 pub fn part_1() {
     let mut sum = 0;
     let lines = DATA.lines().collect::<Vec<&str>>();
-    let (maze, steps) = lines.
-    split_at(lines.iter().position(|&x| x.is_empty())
-    .unwrap());
+    let (maze, steps) = lines.split_at(lines.iter().position(|&x| x.is_empty()).unwrap());
 
     let mut maze = process_data(maze);
     let mut coord = robot_coord(&maze);
@@ -22,14 +20,14 @@ pub fn part_1() {
             '>' => robot_move_part_1(&mut maze, &mut coord, 1, 0),
             '^' => robot_move_part_1(&mut maze, &mut coord, 0, -1),
             'v' => robot_move_part_1(&mut maze, &mut coord, 0, 1),
-            _   => ()
+            _ => (),
         }
     }
 
     for (i, row) in maze.iter().enumerate() {
         for (j, char) in row.iter().enumerate() {
-            if *char=='O' {
-                sum += 100*i + j;
+            if *char == 'O' {
+                sum += 100 * i + j;
             }
         }
     }
@@ -46,8 +44,7 @@ fn robot_move_part_1(maze: &mut [Vec<char>], coord: &mut Coord, dx: i32, dy: i32
         maze[crd.y][crd.x] = '@';
         maze[coord.y][coord.x] = '.';
         *coord = crd;
-    }
-    else {
+    } else {
         while maze[crd.y][crd.x] != '.' && maze[crd.y][crd.x] != '#' {
             crd.x = (crd.x as i32 + dx) as usize;
             crd.y = (crd.y as i32 + dy) as usize;
@@ -63,13 +60,12 @@ fn robot_move_part_1(maze: &mut [Vec<char>], coord: &mut Coord, dx: i32, dy: i32
     }
 }
 
-
 fn robot_coord(maze: &[Vec<char>]) -> Coord {
-    let mut coord = Coord {x: 0, y: 0};
+    let mut coord = Coord { x: 0, y: 0 };
     'outer: for (i, row) in maze.iter().enumerate() {
         for (j, char) in row.iter().enumerate() {
-            if *char=='@' {
-                coord = Coord {x: j, y: i};
+            if *char == '@' {
+                coord = Coord { x: j, y: i };
                 break 'outer;
             }
         }
@@ -79,10 +75,7 @@ fn robot_coord(maze: &[Vec<char>]) -> Coord {
 }
 
 fn process_data(maze: &[&str]) -> Vec<Vec<char>> {
-    let grid = maze
-    .iter()
-    .map(|&x| x.chars().collect::<Vec<char>>())
-    .collect::<Vec<Vec<char>>>();
-
-    grid
+    maze.iter()
+        .map(|&x| x.chars().collect::<Vec<char>>())
+        .collect::<Vec<Vec<char>>>()
 }

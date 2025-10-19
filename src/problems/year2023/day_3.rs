@@ -4,12 +4,12 @@ const DATA: &str = include_str!("../../data/year2023/day_3.txt");
 struct Gear {
     num: i32,
     st_i: usize,
-    st_j: usize
+    st_j: usize,
 }
 
 impl Gear {
     fn new(num: i32, st_i: usize, st_j: usize) -> Self {
-        Gear {num, st_i, st_j}
+        Gear { num, st_i, st_j }
     }
 }
 
@@ -17,10 +17,9 @@ pub fn part_1() {
     let lines: Vec<&str> = DATA.lines().collect();
     let mut nvec = Vec::new();
     let line_no = lines.len();
-    
 
     for (i, line) in lines.iter().enumerate() {
-        let mut num =  String::new();
+        let mut num = String::new();
         let str_len = line.len();
 
         for (j, letter) in line.chars().enumerate() {
@@ -29,54 +28,54 @@ pub fn part_1() {
                 num.push(letter);
             }
 
-            if (!is_num || j==(str_len-1)) && !num.is_empty() {
+            if (!is_num || j == (str_len - 1)) && !num.is_empty() {
                 let num_len = num.len();
-                let mut ind = j-num_len;
-                if j==(str_len-1) && letter.is_numeric() {
+                let mut ind = j - num_len;
+                if j == (str_len - 1) && letter.is_numeric() {
                     ind += 1;
                 }
                 let mut check = false;
 
-                if ind>0 {
-                    let ch = line.chars().nth(ind-1).unwrap();
-                    if ch!='.' {
-                        check  = true;
+                if ind > 0 {
+                    let ch = line.chars().nth(ind - 1).unwrap();
+                    if ch != '.' {
+                        check = true;
                     }
                 }
 
-                if (ind+num_len)<str_len {
-                    let ch = line.chars().nth(ind+num_len).unwrap();
-                    if ch!='.' {
-                        check  = true;
+                if (ind + num_len) < str_len {
+                    let ch = line.chars().nth(ind + num_len).unwrap();
+                    if ch != '.' {
+                        check = true;
                     }
                 }
 
                 let mut st = ind;
-                let mut end = ind+num_len;
+                let mut end = ind + num_len;
 
-                if st==0 {
+                if st == 0 {
                     st += 1;
                 }
-                if end==str_len {
+                if end == str_len {
                     end -= 1;
                 }
 
-                if i>0 {
-                    let prev_line = lines.get(i-1).unwrap();
-                    for k in st-1..=end {
+                if i > 0 {
+                    let prev_line = lines.get(i - 1).unwrap();
+                    for k in st - 1..=end {
                         let ch = prev_line.chars().nth(k).unwrap();
-                        if ch!='.' && !ch.is_numeric() {
-                            check  = true;
+                        if ch != '.' && !ch.is_numeric() {
+                            check = true;
                         }
                     }
                 }
 
-                if (i+1)<line_no {
-                    let next_line = lines.get(i+1).unwrap();
-                    for k in st-1..=end {
+                if (i + 1) < line_no {
+                    let next_line = lines.get(i + 1).unwrap();
+                    for k in st - 1..=end {
                         let ch = next_line.chars().nth(k).unwrap();
-                        if ch!='.' && !ch.is_numeric() {
-                            check  = true;
+                        if ch != '.' && !ch.is_numeric() {
+                            check = true;
                         }
                     }
                 }
@@ -94,12 +93,12 @@ pub fn part_1() {
 
 pub fn part_2() {
     let lines: Vec<&str> = DATA.lines().collect();
-    let mut gvec: Vec<Gear> =  Vec::new();
+    let mut gvec: Vec<Gear> = Vec::new();
     let mut sum = 0;
     let line_no = lines.len();
 
     for (i, line) in lines.iter().enumerate() {
-        let mut num =  String::new();
+        let mut num = String::new();
         let str_len = line.len();
 
         for (j, letter) in line.chars().enumerate() {
@@ -110,60 +109,60 @@ pub fn part_2() {
                 num.push(letter);
             }
 
-            if (!is_num || j==(str_len-1)) && !num.is_empty() {
+            if (!is_num || j == (str_len - 1)) && !num.is_empty() {
                 let num_len = num.len();
-                let mut ind = j-num_len;
-                if j==(str_len-1) && letter.is_numeric() {
+                let mut ind = j - num_len;
+                if j == (str_len - 1) && letter.is_numeric() {
                     ind += 1;
                 }
                 let mut check = false;
 
-                if ind>0 {
-                    let ch = line.chars().nth(ind-1).unwrap();
-                    if ch=='*' {
-                        check  = true;
-                        star_j = ind-1;
+                if ind > 0 {
+                    let ch = line.chars().nth(ind - 1).unwrap();
+                    if ch == '*' {
+                        check = true;
+                        star_j = ind - 1;
                     }
                 }
 
-                if (ind+num_len)<str_len {
-                    let ch = line.chars().nth(ind+num_len).unwrap();
-                    if ch=='*' {
-                        check  = true;
-                        star_j = ind+num_len;
+                if (ind + num_len) < str_len {
+                    let ch = line.chars().nth(ind + num_len).unwrap();
+                    if ch == '*' {
+                        check = true;
+                        star_j = ind + num_len;
                     }
                 }
 
                 let mut st = ind;
-                let mut end = ind+num_len;
+                let mut end = ind + num_len;
 
-                if st==0 {
+                if st == 0 {
                     st += 1;
                 }
-                if end==str_len {
+                if end == str_len {
                     end -= 1;
                 }
 
-                if i>0 {
-                    let prev_line = lines.get(i-1).unwrap();
-                    for k in st-1..=end {
+                if i > 0 {
+                    let prev_line = lines.get(i - 1).unwrap();
+                    for k in st - 1..=end {
                         let ch = prev_line.chars().nth(k).unwrap();
-                        if ch=='*' {
-                            check  = true;
+                        if ch == '*' {
+                            check = true;
                             star_j = k;
-                            star_i = i-1;
+                            star_i = i - 1;
                         }
                     }
                 }
 
-                if (i+1)<line_no {
-                    let next_line = lines.get(i+1).unwrap();
-                    for k in st-1..=end {
+                if (i + 1) < line_no {
+                    let next_line = lines.get(i + 1).unwrap();
+                    for k in st - 1..=end {
                         let ch = next_line.chars().nth(k).unwrap();
-                        if ch=='*' {
+                        if ch == '*' {
                             star_j = k;
-                            star_i = i+1;
-                            check  = true;
+                            star_i = i + 1;
+                            check = true;
                         }
                     }
                 }
@@ -172,8 +171,8 @@ pub fn part_2() {
                     let num = num.parse::<i32>().unwrap();
                     let mut push = true;
                     for (i, g) in gvec.clone().iter().enumerate() {
-                        if g.st_j==star_j && g.st_i==star_i{
-                            sum += num*g.num;
+                        if g.st_j == star_j && g.st_i == star_i {
+                            sum += num * g.num;
                             gvec.remove(i);
                             push = false;
                         }

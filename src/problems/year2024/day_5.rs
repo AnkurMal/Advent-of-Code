@@ -11,14 +11,14 @@ pub fn part_1() {
     'outer: for &i in list.iter().skip(1) {
         let st = i.split(',').collect::<Vec<&str>>();
 
-        for j in 0..st.len()-1 {
-            let page = format!("{}|{}", st[j], st[j+1]);
+        for j in 0..st.len() - 1 {
+            let page = format!("{}|{}", st[j], st[j + 1]);
             if !pages.contains(&page.as_str()) {
                 continue 'outer;
             }
         }
 
-        sum += st[(st.len()-1)/2].parse::<i32>().unwrap();
+        sum += st[(st.len() - 1) / 2].parse::<i32>().unwrap();
     }
 
     println!("Part 1: {}", sum);
@@ -35,13 +35,13 @@ pub fn part_2() {
     for &i in list.iter().skip(1) {
         let mut st = i.split(',').collect::<Vec<&str>>();
         let mut contains = true;
-        let mut ind=0;
+        let mut ind = 0;
 
-        while ind<st.len()-1 {
-            let page = format!("{}|{}", st[ind], st[ind+1]);
-            
+        while ind < st.len() - 1 {
+            let page = format!("{}|{}", st[ind], st[ind + 1]);
+
             if !pages.contains(&page.as_str()) {
-                st.swap(ind, ind+1);
+                st.swap(ind, ind + 1);
                 ind = 0;
                 contains = false;
                 continue;
@@ -50,7 +50,7 @@ pub fn part_2() {
         }
 
         if !contains {
-            sum += st[(st.len()-1)/2].parse::<i32>().unwrap();
+            sum += st[(st.len() - 1) / 2].parse::<i32>().unwrap();
         }
     }
 

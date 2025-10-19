@@ -10,7 +10,7 @@ pub fn part_1() {
         let num1 = pat[1].parse::<i32>().unwrap();
         let num2 = pat[2].parse::<i32>().unwrap();
 
-        sum += num1*num2;
+        sum += num1 * num2;
     }
 
     println!("Part 1: {sum}")
@@ -18,7 +18,7 @@ pub fn part_1() {
 
 pub fn part_2() {
     let mut sum = 0;
-    let do_pattern  = Regex::new(r"(?s)do\(\).*?don\'t\(\)").unwrap();
+    let do_pattern = Regex::new(r"(?s)do\(\).*?don\'t\(\)").unwrap();
     let capt = Regex::new(r"mul\((\d+),(\d+)\)").unwrap();
 
     let mut data = format!("do(){DATA}don't()");
@@ -27,8 +27,8 @@ pub fn part_2() {
         for pat in capt.captures_iter(i) {
             let num1 = pat[1].parse::<i32>().unwrap();
             let num2 = pat[2].parse::<i32>().unwrap();
-    
-            sum += num1*num2;
+
+            sum += num1 * num2;
         }
     }
 

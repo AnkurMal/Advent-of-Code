@@ -4,12 +4,12 @@ const DATA: &str = include_str!("../../data/year2023/day_2.txt");
 struct Cube {
     red: u32,
     green: u32,
-    blue: u32
+    blue: u32,
 }
 
 impl Cube {
     fn new(red: u32, green: u32, blue: u32) -> Cube {
-        Cube {red, green, blue}
+        Cube { red, green, blue }
     }
 
     fn reset(&mut self) {
@@ -17,9 +17,9 @@ impl Cube {
         self.green = 0;
         self.blue = 0;
     }
-    
+
     fn product(&self) -> u32 {
-        self.red*self.green*self.blue
+        self.red * self.green * self.blue
     }
 }
 
@@ -42,17 +42,16 @@ pub fn part_1() {
             for i in (1..split.len()).step_by(2) {
                 let item = split.get(i).unwrap();
                 if item.contains("red") {
-                    cube.red = split.get(i-1).unwrap().parse().unwrap();
-                }
-                else if item.contains("green") {
-                    cube.green = split.get(i-1).unwrap().parse().unwrap();
+                    cube.red = split.get(i - 1).unwrap().parse().unwrap();
+                } else if item.contains("green") {
+                    cube.green = split.get(i - 1).unwrap().parse().unwrap();
                 }
                 if item.contains("blue") {
-                    cube.blue = split.get(i-1).unwrap().parse().unwrap();
+                    cube.blue = split.get(i - 1).unwrap().parse().unwrap();
                 }
             }
-            
-            if cube.red>max.red || cube.green>max.green || cube.blue>max.blue {
+
+            if cube.red > max.red || cube.green > max.green || cube.blue > max.blue {
                 smaller = false;
                 continue;
             }
@@ -81,20 +80,19 @@ pub fn part_2() {
             for i in (1..split.len()).step_by(2) {
                 let item = split.get(i).unwrap();
                 if item.contains("red") {
-                    let red: u32 = split.get(i-1).unwrap().parse().unwrap();
-                    if red>cube.red {
+                    let red: u32 = split.get(i - 1).unwrap().parse().unwrap();
+                    if red > cube.red {
                         cube.red = red;
                     }
-                }
-                else if item.contains("green") {
-                    let green: u32 = split.get(i-1).unwrap().parse().unwrap();
-                    if green>cube.green {
+                } else if item.contains("green") {
+                    let green: u32 = split.get(i - 1).unwrap().parse().unwrap();
+                    if green > cube.green {
                         cube.green = green;
                     }
                 }
                 if item.contains("blue") {
-                    let blue: u32 = split.get(i-1).unwrap().parse().unwrap();
-                    if blue>cube.blue {
+                    let blue: u32 = split.get(i - 1).unwrap().parse().unwrap();
+                    if blue > cube.blue {
                         cube.blue = blue;
                     }
                 }

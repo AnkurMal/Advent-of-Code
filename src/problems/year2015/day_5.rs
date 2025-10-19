@@ -15,11 +15,10 @@ pub fn part_1() {
                     vowel += 1;
                 }
                 
-                if let Some(next) = str.chars().nth(i+1) {
-                    if ch==next {
+                if let Some(next) = str.chars().nth(i+1)
+                    && ch==next {
                         twice += 1;
                     }
-                }
 
                 if vowel >= 3 && twice >= 1 {
                     total += 1;
@@ -48,12 +47,11 @@ pub fn part_2() {
         }
 
         for (i, ch) in str.chars().enumerate() {
-            if let Some(next) = str.chars().nth(i+2) {
-                if ch==next {
+            if let Some(next) = str.chars().nth(i+2)
+                && ch==next {
                     repeat = true;
                     break;
                 }
-            }
         }
 
         if twice && repeat {
