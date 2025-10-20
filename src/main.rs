@@ -5,7 +5,7 @@ use anyhow::Result;
 use problems::year2021::*;
 
 fn main() -> Result<()> {
-    day_3::part_2()?;
+    day_4::part_2()?;
 
     Ok(())
 }
