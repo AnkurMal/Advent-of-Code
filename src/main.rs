@@ -1,11 +1,10 @@
 mod problems;
 
 use anyhow::Result;
-#[allow(unused)]
-use problems::year2023::*;
+use problems::year2025::*;
 
 fn main() -> Result<()> {
-    day_8::part_2()?;
+    day_1::part_2()?;
 
     Ok(())
 }
