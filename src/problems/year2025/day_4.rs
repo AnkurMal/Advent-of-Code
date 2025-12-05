@@ -105,6 +105,6 @@ pub fn part_2() -> Result<()> {
         sum += total;
     }
 
-    println!("Part 1: {sum}");
+    println!("Part 2: {sum}");
     Ok(())
 }

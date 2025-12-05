@@ -4,7 +4,7 @@ use anyhow::Result;
 use problems::year2025::*;
 
 fn main() -> Result<()> {
-    day_4::part_2()?;
+    day_5::part_2()?;
 
     Ok(())
 }
