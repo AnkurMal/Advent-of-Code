@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0.100"
+geo = "0.32.0"
 md5 = "0.8.0"
 num = "0.4.3"
 rayon = "1.11.0"
