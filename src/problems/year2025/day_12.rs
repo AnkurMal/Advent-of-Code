@@ -30,7 +30,3 @@ pub fn part_1() -> Result<()> {
     println!("Part 1: {}", count);
     Ok(())
 }
-
-pub fn part_2() -> Result<()> {
-    Ok(())
-}
